@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tsyvia\\Desktop\\Second Year\\ניסוי\\ToDoApi\\ToDoApi.csproj": {}
+    "C:\\Users\\Tsyvia\\Desktop\\Second Year\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tsyvia\\Desktop\\Second Year\\ניסוי\\ToDoApi\\ToDoApi.csproj": {
+    "C:\\Users\\Tsyvia\\Desktop\\Second Year\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\ניסוי\\ToDoApi\\ToDoApi.csproj",
+        "projectUniqueName": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
         "projectName": "ToDoApi",
-        "projectPath": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\ניסוי\\ToDoApi\\ToDoApi.csproj",
+        "projectPath": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
         "packagesPath": "C:\\Users\\Tsyvia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\ניסוי\\ToDoApi\\obj\\",
+        "outputPath": "C:\\Users\\Tsyvia\\Desktop\\Second Year\\react\\Prakticod 3\\ToDoApi-Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -42,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
