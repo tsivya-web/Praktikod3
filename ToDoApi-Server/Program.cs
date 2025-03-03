@@ -60,11 +60,11 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 app.UseCors("CorsPolicy");
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.Use(async (context, next) =>
 {
@@ -212,7 +212,7 @@ app.MapDelete("/delete/{id}", async (ToDoDbContext context, int id) =>
     return Results.Ok(r);
 }
 );
-
+app.MapGet('/',()=>"ToDoApi-Server is running!!!!")
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
