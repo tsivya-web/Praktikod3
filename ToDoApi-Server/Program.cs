@@ -159,7 +159,7 @@ object CreateJWT(User user)
 
 app.MapGet("/users", async (ToDoDbContext context) =>
     await context.Users.ToListAsync());
-app.MapGet("/", () => "Hello World!");
+
 
 app.MapGet("/items", async (ToDoDbContext context) =>
     await context.Items.ToListAsync());
