@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { Register } from './components/register';
 
-axios.defaults.baseURL = 'http://localhost:5070';
+axios.defaults.baseURL = process.env.REACT_APP_API;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 setAuthorizationBearer();
 
