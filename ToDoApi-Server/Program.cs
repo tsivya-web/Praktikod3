@@ -212,7 +212,7 @@ app.MapDelete("/delete/{id}", async (ToDoDbContext context, int id) =>
     return Results.Ok(r);
 }
 );
-app.MapGet('/',()=>"ToDoApi-Server is running!!!!")
+app.MapGet('/',()=>"ToDoApi-Server is running!!!!");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
