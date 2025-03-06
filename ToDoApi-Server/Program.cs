@@ -25,10 +25,13 @@ builder.Services.AddCors(opt =>
     });
 });
 
-builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
+builder.Services.AddDbContext<ToDoDbContext>(options =>{
+    // options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
+    // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
+var connectionString = builder.Configuration.GetConnectionString("tododb");
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
 
+options.UseMySql(connectionString, serverVersion);});
     
 builder.Services.AddSwaggerGen(options =>
 {
@@ -160,8 +163,10 @@ app.MapGet("/users", async (ToDoDbContext context) =>
     await context.Users.ToListAsync());
 
 
-app.MapGet("/items", async (ToDoDbContext context) =>
-    await context.Items.ToListAsync());
+app.MapGet("/items", async (ToDoDbContext context) =>{
+  var items =   await context.Items.ToListAsync();
+    Console.WriteLine($"Number of items: {items.Count}");
+    return items;});
 
 
 
