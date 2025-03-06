@@ -19,10 +19,9 @@ builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy",  policyBuilder =>
     {
-        policyBuilder
-    .AllowAnyOrigin()
-    .AllowAnyHeader()
-    .AllowAnyMethod();
+        policyBuilder.WithOrigins("https://clientpraktikod3.onrender.com")
+  .WithMethods("GET","POST","DELETE","PUT")
+    .WithHeaders("Content-Type","Authorization");
     });
 });
 
