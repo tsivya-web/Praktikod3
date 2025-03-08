@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+Console.WriteLine("Before DB connection.");
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
 if (string.IsNullOrEmpty(connectionString))
