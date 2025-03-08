@@ -11,6 +11,29 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    Console.WriteLine("⚠️ CONNECTION_STRING is missing or empty! Make sure it's set in Render.");
+    throw new InvalidOperationException("Missing database connection string.");
+}
+else
+{
+    Console.WriteLine($"🔍 Connection String: '{connectionString}'");
+}
+
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+{
+    options.UseMySql(connectionString, serverVersion);
+});
+
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -28,7 +51,7 @@ builder.Services.AddCors(opt =>
 builder.Services.AddDbContext<ToDoDbContext>(options =>{
     // options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
     // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
-var connectionString = builder.Configuration.GetConnectionString("tododb");
+// var connectionString = builder.Configuration.GetConnectionString("tododb");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
 
 options.UseMySql(connectionString, serverVersion);});
@@ -84,6 +107,7 @@ app.Use(async (context, next) =>
       await context.Response.WriteAsync($"{{\"שגיאה\": \"אירעה שגיאה בשרת: {ex.Message}\", \"סטאק\": \"{ex.StackTrace}\"}}");
     }
 });
+
 
 
 
