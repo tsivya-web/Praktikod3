@@ -48,13 +48,13 @@ builder.Services.AddCors(opt =>
     });
 });
 
-builder.Services.AddDbContext<ToDoDbContext>(options =>{
-    // options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
-    // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
-// var connectionString = builder.Configuration.GetConnectionString("tododb");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+// builder.Services.AddDbContext<ToDoDbContext>(options =>{
+//     // options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
+//     // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
+// // var connectionString = builder.Configuration.GetConnectionString("tododb");
+// var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
 
-options.UseMySql(connectionString, serverVersion);});
+// options.UseMySql(connectionString, serverVersion);});
     
 builder.Services.AddSwaggerGen(options =>
 {
