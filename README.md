@@ -37,14 +37,15 @@ Authentication is done using JSON Web Token (JWT), which is stored in Local Stor
      ┣ 📂 client          # React application
      ┃ ┣ 📂 src
      ┃ ┃ ┣ 📂 components  # Components
-     ┃ ┃ ┣ 📂 pages       # Pages (Public/Private)
+     ┃ ┃ ┣ 📂 service       # Pages (Public/Private)
      ┃ ┃ ┣ 📜 App.js      # Main file
     ┣ 📂 server          # C# server
      ┃ ┣ 📂 Controllers   # API controllers
      ┃ ┣ 📂 Models        # Data models
-     ┃ ┣ 📂 Services      # Business logic
+     ┃ ┣ 📂 Item.cs      # class of items 
+     ┃ ┣ 📂 Users.cs      # class of users 
      ┃ ┣ 📜 Program.cs    # Main entry file
-     ┣ 📂 database        # Database scripts
+     ┃ ┣ 📂 ToDoDbContext.cs        # Database scripts
 ## ⚡ Installation and Running
 ### 🔧 Installing the Frontend
     sh
