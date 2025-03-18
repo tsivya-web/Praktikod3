@@ -214,15 +214,36 @@ app.MapGet("/items", async (ToDoDbContext context) =>
 
 
 
-app.MapPost("/addTask", async (ToDoDbContext context, Item i) =>
+// app.MapPost("/addTask", async (ToDoDbContext context, Item i) =>
+// {
+//     i.IsComplete = false;
+//     await context.Items.AddAsync(i);
+//     await context.SaveChangesAsync();
+//     var result = await context.Items.FindAsync(i.Id);
+//     return result;
+// }
+// );
+
+app.MapPost("/addTask", async (ToDoDbContext context, [FromBody] string request) =>
 {
-    i.IsComplete = false;
-    await context.Items.AddAsync(i);
+
+    // קביעת ה-ID החדש לפי ה-ID הגבוה ביותר במסד הנתונים
+    var lastId = await context.Items.MaxAsync(i => (int?)i.Id) ?? 0; // מחזיר 0 אם אין נתונים
+    var newId = lastId + 1;
+
+    var newItem = new Item
+    {
+        Id = newId, // קביעת ה-ID
+        Name = request,
+        IsComplete = false
+    };
+
+    await context.Items.AddAsync(newItem);
     await context.SaveChangesAsync();
-    var result = await context.Items.FindAsync(i.Id);
+ var result = await context.Items.FindAsync(newItem.Id);
     return result;
-}
-);
+   
+});
 
 app.MapPut("/update/{id}", async (ToDoDbContext context,int id ,[FromBody] Item updateItem) =>
 {
