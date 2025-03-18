@@ -38,14 +38,15 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors(opt =>
+builder.Services.AddCors(options =>
 {
-    opt.AddPolicy("CorsPolicy",  policyBuilder =>
-    {
-        policyBuilder.WithOrigins("https://clientpraktikod3.onrender.com")
-  .WithMethods("GET","POST","DELETE","PUT")
-    .WithHeaders("Content-Type","Authorization");
-    });
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("https://clientpraktikod3.onrender.com")// הרשאה לכל מקור (דומיין) - ב
+               .WithMethods("GET", "POST", "PUT", "DELETE")
+                .WithHeaders("Content-Type", "Authorization");
+        });
 });
 
 // הוספת שירותים לחיבור למסד הנתונים באמצעות Entity Framework Core
@@ -86,7 +87,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!...");  
 var app = builder.Build();
-app.UseCors("CorsPolicy");
+app.UseCors();
 // if (app.Environment.IsDevelopment())
 // {
     app.UseSwagger();
