@@ -60,8 +60,9 @@ return null;
   },
 
   addTask: async(name)=>{
+    debugger
     console.log('addTask', name,)
-    const result=await axios.post(`/addTask`, {name},);
+    const result=await axios.post(`/addTask`, name);
     console.log("sucess")
   },
 
@@ -97,7 +98,8 @@ await  axios.get(`/items`)   ;  // קריאה לפונקציה שמעדכנת א
     const result = await axios.post(`/login`,
      {Email:email,Password:password} 
     )    
-     saveAccessToken(result.data.jwt)},
+     saveAccessToken(result.data.jwt)}
+     ,
 
 
      register:async(user)=>{
