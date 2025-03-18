@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ToDoApi;
-using Microsoft.OpenApi.Models;
+ using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -10,11 +10,12 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.AspNetCore.Mvc;
+ using Microsoft.OpenApi;
 var builder = WebApplication.CreateBuilder(args);
 
 
 Console.WriteLine("Before DB connection.");
-var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+var connectionString = builder.Configuration.GetConnectionString("tododb");
 
 if (string.IsNullOrEmpty(connectionString))
 {
@@ -25,13 +26,12 @@ else
 {
     Console.WriteLine($"🔍 Connection String: '{connectionString}'");
 }
+// builder.Services.AddDbContext<ToDoDbContext>(options =>
+// {
+//     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+// });
 
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
 
-builder.Services.AddDbContext<ToDoDbContext>(options =>
-{
-    options.UseMySql(connectionString, serverVersion);
-});
 
 
 builder.Services.AddControllers();
@@ -48,14 +48,16 @@ builder.Services.AddCors(opt =>
     });
 });
 
-// builder.Services.AddDbContext<ToDoDbContext>(options =>{
-//     // options.UseMySql(builder.Configuration.GetConnectionString("tododb"),
-//     // ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("tododb"))));
-// // var connectionString = builder.Configuration.GetConnectionString("tododb");
-// var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
-
-// options.UseMySql(connectionString, serverVersion);});
-    
+// הוספת שירותים לחיבור למסד הנתונים באמצעות Entity Framework Core
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+    options.UseMySql(
+        // קבלת מחרוזת החיבור למסד הנתונים מהקונפיגורציה
+        builder.Configuration.GetConnectionString("tododb"),
+        // הגדרת גרסת שרת ה-MySql
+        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.40-mysql")
+    )
+);
+Console.WriteLine("🔄 Trying to connect to DB...");  
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -82,7 +84,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
+Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!...");  
 var app = builder.Build();
 app.UseCors("CorsPolicy");
 // if (app.Environment.IsDevelopment())
@@ -138,7 +140,7 @@ System.Console.WriteLine("nnnn");
 
 
 
-app.MapPost("/login", async ( ToDoDbContext context,[FromBody] LoginModel req) =>
+app.MapPost("/login", async ( ToDoDbContext context,[FromBody] User req) =>
 {
       System.Console.WriteLine("huygouy");
     User i = context.Users?.FirstOrDefault(u => u.Email ==req.Email && u.Password == req.Password);
@@ -184,13 +186,29 @@ object CreateJWT(User user)
 
 
 app.MapGet("/users", async (ToDoDbContext context) =>
-    await context.Users.ToListAsync());
+{
+   var users= await context.Users.ToListAsync();
+
+Console.WriteLine("🔍 Total Users: " + users.Count);
+return users ;});
 
 
-app.MapGet("/items", async (ToDoDbContext context) =>{
-  var items =   await context.Items.ToListAsync();
-    Console.WriteLine($"Number of items: {items.Count}");
-    return items;});
+app.MapGet("/items", async (ToDoDbContext context) =>
+{
+    try
+    {
+        var items = await context.Items.ToListAsync();
+        Console.WriteLine($"🔍 Number of items: {items.Count}");
+        return Results.Ok(items);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Error: {ex.Message}");
+        return Results.Problem("An error occurred while retrieving the items.");
+    }
+});
+
+
 
 
 
@@ -240,6 +258,7 @@ app.MapDelete("/delete/{id}", async (ToDoDbContext context, int id) =>
     return Results.Ok(r);
 }
 );
+
 app.MapGet("/",()=>"ToDoApi-Server is running!!!!");
 app.UseAuthentication();
 app.UseAuthorization();

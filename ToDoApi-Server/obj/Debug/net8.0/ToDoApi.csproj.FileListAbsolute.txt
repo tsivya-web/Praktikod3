@@ -401,3 +401,4 @@ c:\Users\Tsyvia\Desktop\Second Year\react\Prakticod 3\ToDoApi-Server\obj\Debug\n
 c:\Users\Tsyvia\Desktop\Second Year\react\Prakticod 3\ToDoApi-Server\obj\Debug\net8.0\ToDoApi.pdb
 c:\Users\Tsyvia\Desktop\Second Year\react\Prakticod 3\ToDoApi-Server\obj\Debug\net8.0\ToDoApi.genruntimeconfig.cache
 c:\Users\Tsyvia\Desktop\Second Year\react\Prakticod 3\ToDoApi-Server\obj\Debug\net8.0\ref\ToDoApi.dll
+C:\Users\Tsyvia\Desktop\Second Year\react\Prakticod 3\ToDoApi-Server\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
