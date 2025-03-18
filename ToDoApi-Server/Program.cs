@@ -43,7 +43,8 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000/")// הרשאה לכל מקור (דומיין) - ב
+            policy.WithOrigins("http://localhost:3000")// הרשאה לכל מקור (דומיין) - ב
+              .AllowCredentials()
                .WithMethods("GET", "POST", "PUT", "DELETE")
                 .WithHeaders("Content-Type", "Authorization");
         });
