@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { Register } from './components/register';
 
-axios.defaults.baseURL = process.env.REACT_APP_API;
+axios.defaults.baseURL = "https://praktikod3server.onrender.com";
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 setAuthorizationBearer();
 
