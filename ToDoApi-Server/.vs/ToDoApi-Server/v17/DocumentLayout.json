@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,17 +65,12 @@
               "Name": "ST:167753769:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
-              "RelativeDocumentMoniker": "Item.cs",
-              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
-              "RelativeToolTip": "Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T16:58:25.274Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
@@ -87,8 +82,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAABYAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T16:31:46.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T16:31:46.643Z"
             },
             {
               "$type": "Document",
@@ -100,8 +94,7 @@
               "RelativeToolTip": "controllers\\authControllers.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T16:31:45.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T16:31:45.55Z"
             },
             {
               "$type": "Document",
@@ -113,25 +106,23 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T16:01:58.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T16:01:58.419Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ToDoApi",
+              "Title": "ToDoApi.csproj",
               "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
               "RelativeDocumentMoniker": "ToDoApi.csproj",
               "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
               "RelativeToolTip": "ToDoApi.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-10T15:52:39.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T15:52:39.806Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ToDoDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoDbContext.cs",
               "RelativeDocumentMoniker": "ToDoDbContext.cs",
@@ -144,13 +135,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAAADkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAAAJ0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T15:15:55.793Z",
               "EditorCaption": ""
@@ -165,20 +156,19 @@
               "RelativeToolTip": "package-lock.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T15:15:48.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T15:15:48.258Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
+              "RelativeDocumentMoniker": "Item.cs",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
+              "RelativeToolTip": "Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T16:58:25.274Z"
             },
             {
               "$type": "Document",
@@ -190,8 +180,7 @@
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T15:35:08.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T15:35:08.575Z"
             }
           ]
         }

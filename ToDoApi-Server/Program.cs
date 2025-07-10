@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Runtime.ConstrainedExecution;
 var builder = WebApplication.CreateBuilder(args);
 
 // ✅ בדיקת מחרוזת חיבור
@@ -108,7 +109,7 @@ app.Use(async (context, next) =>
 
 
 
-
+app.MapGet("/", () => "ToDoApi-Server is running!!!!");
 
 
 app.MapPost("/register", async ( ToDoDbContext context,User i) =>
@@ -140,7 +141,7 @@ app.MapPost("/login", async ( ToDoDbContext context,[FromBody] User req) =>
 {
       System.Console.WriteLine("huygouy");
     System.Console.WriteLine(context.Users);
-    User i = context.Users?.FirstOrDefault(u => u.Email ==req.Email && u.Password == req.Password);
+    
 
     if (context.Users == null)
     {
@@ -150,7 +151,9 @@ app.MapPost("/login", async ( ToDoDbContext context,[FromBody] User req) =>
     {
         var usersCount = await context.Users.CountAsync();
         Console.WriteLine($"Users count: {usersCount}");
+       ;
     }
+    User i = await context.Users?.FirstOrDefaultAsync(u => u.Email == req.Email && u.Password == req.Password);
     if (i == null)
     {
        return Results.Json(new {message="!!!!"});
@@ -286,7 +289,7 @@ app.MapDelete("/delete/{id}", async (ToDoDbContext context, int id) =>
 }
 );
 
-app.MapGet("/",()=>"ToDoApi-Server is running!!!!");
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();

@@ -5,6 +5,25 @@
     "version": "1.0"
   },
   "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "ToDoApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/register": {
       "post": {
         "tags": [
@@ -164,25 +183,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/": {
-      "get": {
-        "tags": [
-          "ToDoApi"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       }
