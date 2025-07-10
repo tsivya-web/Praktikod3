@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { Register } from './components/register';
 
-axios.defaults.baseURL = "https://praktikod3server.onrender.com";
+axios.defaults.baseURL = "/";
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 setAuthorizationBearer();
 
@@ -95,6 +95,7 @@ await  axios.get(`/items`)   ;  // קריאה לפונקציה שמעדכנת א
  , 
   login:async(email,password)=>{
     debugger
+    console.log('login', {email,password})
     const result = await axios.post(`/login`,
      {Email:email,Password:password} 
     )    
