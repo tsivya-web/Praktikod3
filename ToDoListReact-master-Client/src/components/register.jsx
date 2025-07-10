@@ -4,6 +4,7 @@ import service from "../service";
 
 export const Register = () => {
   const [user, setuser] = useState({})
+  const [showPassword, setShowPassword] = useState(false)
   const n = useNavigate();
   async function func() {
     try {
@@ -28,7 +29,26 @@ export const Register = () => {
           </div>
           <div className="mb-3 text-end">
             <label className="form-label" htmlFor="register-password">סיסמה</label>
-            <input type="password" className="form-control" id="register-password" placeholder="הכנס סיסמה" onBlur={(e) => setuser({ ...user, Password: e.target.value })} required />
+            <input 
+              type={showPassword ? "text" : "password"} 
+              className="form-control" 
+              id="register-password" 
+              placeholder="הכנס סיסמה" 
+              onBlur={(e) => setuser({ ...user, Password: e.target.value })} 
+              required 
+            />
+            <div className="form-check mt-2 text-end">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="showPasswordCheckRegister"
+                checked={showPassword}
+                onChange={(e) => setShowPassword(e.target.checked)}
+              />
+              <label className="form-check-label" htmlFor="showPasswordCheckRegister">
+                הצג סיסמה
+              </label>
+            </div>
           </div>
           <div className="mb-3 text-end">
             <label className="form-label" htmlFor="register-email">אימייל</label>

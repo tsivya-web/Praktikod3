@@ -4,6 +4,7 @@ import service from '../service.js';
 
 export const Login = () => {
   const [user, setuser] = useState({})
+  const [showPassword, setShowPassword] = useState(false)
   const n = useNavigate()
   async function getUser() {
     try {
@@ -27,7 +28,25 @@ export const Login = () => {
           </div>
           <div className="mb-3 text-end">
             <label className="form-label" htmlFor="login-password">סיסמה</label>
-            <input className="form-control" id="login-password" type="password" placeholder="הכנס סיסמה" onBlur={(e) => setuser({ ...user, password: e.target.value })} />
+            <input 
+              className="form-control" 
+              id="login-password" 
+              type={showPassword ? "text" : "password"} 
+              placeholder="הכנס סיסמה" 
+              onBlur={(e) => setuser({ ...user, password: e.target.value })} 
+            />
+            <div className="form-check mt-2 text-end">
+              <input
+                className="form-check-input ms-2"
+                type="checkbox"
+                id="showPasswordCheck"
+                checked={showPassword}
+                onChange={(e) => setShowPassword(e.target.checked)}
+              />
+              <label className="form-check-label" htmlFor="showPasswordCheck">
+                הצג סיסמה
+              </label>
+            </div>
           </div>
           <button className="btn btn-primary w-100" onClick={getUser}>התחבר</button>
         </div>

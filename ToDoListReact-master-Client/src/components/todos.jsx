@@ -8,6 +8,7 @@ export const Todos = () => {
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [name, setname] = useState()
+  const [isLoading, setIsLoading] = useState(true)
 
   async function getTodos() {
     if (localStorage.getItem("access_token") == null)
@@ -20,6 +21,7 @@ export const Todos = () => {
 
   async function createTodo(e) {
     e.preventDefault();
+    if (newTodo.trim() === "") return;
     await service.addTask(newTodo);
     setNewTodo("");//clear input
     await getTodos();//refresh tasks list (in order to see the new one)
@@ -35,69 +37,140 @@ export const Todos = () => {
     await getTodos();//refresh tasks list
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    n('/login');
+  }
+
   useEffect(() => {
-    const a = service.getLoginUser()
-    if (!a) {
-      alert("תוקף ההתחברות פג, אנא התחבר מחדש")
-      n('/login')
-      return;
+    const checkAuth = async () => {
+      const a = service.getLoginUser()
+      if (!a) {
+        alert("תוקף ההתחברות פג. אנא התחבר מחדש.");
+        n('/login')
+        return;
+      }
+      setname(a.name)
+      await getTodos();
+      setIsLoading(false);
     }
-    setname(a.name)
-    getTodos();
+    
+    checkAuth();
   }, []);
 
+  // אם עדיין בודקים אותנטיקציה, לא מציגים כלום
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <section style={{ direction: "rtl", textAlign: "right", background: "#f8f9fa", minHeight: "100vh", padding: "2rem" }}>
+    <div style={{ direction: "rtl", textAlign: "right", background: "#f5f5f5", minHeight: "100vh", padding: "2rem" }}>
       <div className="container">
-        <header className="mb-4">
-          <h1 className="display-5 mb-3">רשימת משימות</h1>
-          {name && <h4 className="mb-4">ברוך הבא, {name}</h4>}
-          <form onSubmit={createTodo} className="d-flex mb-4">
-            <input
-              className="form-control me-2"
-              style={{ maxWidth: "350px" }}
-              placeholder="הוסף משימה חדשה..."
-              value={newTodo}
-              onChange={(e) => setNewTodo(e.target.value)}
-            />
-            <button className="btn btn-success" type="submit">הוסף</button>
-          </form>
-        </header>
-        <section>
-          <div className="row g-3">
-            {todos.map(todo => (
-              <div className="col-12 col-md-6 col-lg-4" key={todo.id}>
-                <div className={`card shadow-sm ${todo.isComplete ? 'border-success' : ''}` }>
-                  <div className="card-body">
-                    <div className="d-flex align-items-center justify-content-between">
-                      <div className="form-check" style={{ flex: 1 }}>
-                        <input
-                          className="form-check-input ms-2"
-                          type="checkbox"
-                          checked={todo.isComplete}
-                          onChange={(e) => updateCompleted(todo, e.target.checked)}
-                          id={`todo-check-${todo.id}`}
-                        />
-                        <label
-                          className={`form-check-label ${todo.isComplete ? 'text-decoration-line-through text-success' : ''}`}
-                          htmlFor={`todo-check-${todo.id}`}
-                          style={{ fontWeight: 500 }}
-                        >
-                          {todo.name}
-                        </label>
-                      </div>
-                      <button className="btn btn-danger btn-sm" title="מחק" onClick={() => deleteTodo(todo.id)}>
-                        מחק
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+        {/* Header with logout */}
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h1 className="display-6 mb-2" style={{ color: "#2c3e50", fontWeight: "bold" }}>
+              פנקס המשימות שלי
+            </h1>
+            {name && <h5 className="text-muted">שלום, {name}</h5>}
           </div>
-        </section>
+          <button 
+            className="btn btn-outline-danger" 
+            onClick={handleLogout}
+            style={{ fontSize: "0.9rem" }}
+          >
+            התנתק
+          </button>
+        </div>
+
+        {/* Add new task form */}
+        <div className="card shadow-sm mb-4" style={{ border: "none", borderRadius: "15px" }}>
+          <div className="card-body p-4">
+            <form onSubmit={createTodo} className="d-flex gap-2">
+              <input
+                className="form-control"
+                style={{ 
+                  border: "2px solid #e9ecef", 
+                  borderRadius: "10px",
+                  fontSize: "1.1rem",
+                  padding: "12px 15px"
+                }}
+                placeholder="הוסף משימה חדשה..."
+                value={newTodo}
+                onChange={(e) => setNewTodo(e.target.value)}
+              />
+              <button 
+                className="btn btn-primary" 
+                type="submit"
+                style={{ 
+                  borderRadius: "10px",
+                  padding: "12px 25px",
+                  fontSize: "1.1rem"
+                }}
+              >
+                הוסף
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Tasks list */}
+        <div className="card shadow-sm" style={{ border: "none", borderRadius: "15px" }}>
+          <div className="card-body p-0">
+            {todos.length === 0 ? (
+              <div className="text-center py-5">
+                <h5 className="text-muted">אין משימות עדיין</h5>
+                <p className="text-muted">הוסף משימה חדשה כדי להתחיל!</p>
+              </div>
+            ) : (
+              <div style={{ maxHeight: "60vh", overflowY: "auto" }}>
+                {todos.map((todo, index) => (
+                  <div 
+                    key={todo.id}
+                    className={`d-flex align-items-center p-3 border-bottom ${index === todos.length - 1 ? 'border-bottom-0' : ''}`}
+                    style={{ 
+                      backgroundColor: todo.isComplete ? "#f8f9fa" : "white",
+                      transition: "all 0.3s ease"
+                    }}
+                  >
+                    <div className="form-check ms-3">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        checked={todo.isComplete}
+                        onChange={(e) => updateCompleted(todo, e.target.checked)}
+                        style={{ transform: "scale(1.2)" }}
+                      />
+                    </div>
+                    <div className="flex-grow-1 me-3">
+                      <span
+                        className={`${todo.isComplete ? 'text-decoration-line-through text-muted' : ''}`}
+                        style={{ 
+                          fontSize: "1.1rem",
+                          fontWeight: todo.isComplete ? "normal" : "500"
+                        }}
+                      >
+                        {todo.name}
+                      </span>
+                    </div>
+                    <button 
+                      className="btn btn-outline-danger btn-sm"
+                      onClick={() => deleteTodo(todo.id)}
+                      style={{ 
+                        borderRadius: "8px",
+                        padding: "6px 12px"
+                      }}
+                    >
+                      מחק
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
  

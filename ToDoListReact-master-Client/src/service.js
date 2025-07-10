@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { Register } from './components/register';
 
-axios.defaults.baseURL = "/";
+axios.defaults.baseURL = "https://praktikod3server.onrender.com";
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 setAuthorizationBearer();
 
@@ -34,22 +34,29 @@ export default {
   getLoginUser: () => {
     const accessToken = localStorage.getItem("access_token");
     if (!accessToken) {
-return null;}
-try{
-const dekoded=jwtDecode(accessToken);
-const currentTime=Math.floor(Date.now()/1000);
-if(dekoded.exp<currentTime){
-  localStorage.removeItem("access_token")
-  return null;
-}
-return dekoded
-}
-catch(e){
-console.error("error is ",e)
-return null;
-}
-}
-,
+      return null;
+    }
+    try {
+      const dekoded = jwtDecode(accessToken);
+      const currentTime = Math.floor(Date.now() / 1000);
+      
+      // הדפסות לדיבוג
+      console.log("תוקף ה-JWT:", new Date(dekoded.exp * 1000).toLocaleString('he-IL'));
+      console.log("הזמן הנוכחי:", new Date(currentTime * 1000).toLocaleString('he-IL'));
+      console.log("נשארו שניות:", dekoded.exp - currentTime);
+      
+      if (dekoded.exp < currentTime) {
+        console.log("תוקף ה-JWT פג!");
+        localStorage.removeItem("access_token")
+        return null;
+      }
+      return dekoded
+    }
+    catch (e) {
+      console.error("error is ", e)
+      return null;
+    }
+  },
   getTasks: async () => {
     const result = await axios.get(`/items`)   
     return result.data;
