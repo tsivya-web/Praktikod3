@@ -1,0 +1,201 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:tododbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\controllers\\authcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:controllers\\authcontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|c:\\users\\tsyvia\\desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\prakticod 3\\todoapi-server\\todoapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8E71EDA4-FE1C-2822-A6C9-812607CDF2E0}|ToDoApi.csproj|solutionrelative:todoapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2066826798:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:167753769:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
+              "RelativeDocumentMoniker": "Item.cs",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Item.cs",
+              "RelativeToolTip": "Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T16:58:25.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAAA8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T16:31:46.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "authControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\controllers\\authControllers.cs",
+              "RelativeDocumentMoniker": "controllers\\authControllers.cs",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\controllers\\authControllers.cs",
+              "RelativeToolTip": "controllers\\authControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T16:31:45.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T16:01:58.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ToDoApi",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
+              "RelativeDocumentMoniker": "ToDoApi.csproj",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoApi.csproj",
+              "RelativeToolTip": "ToDoApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-10T15:52:39.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ToDoDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoDbContext.cs",
+              "RelativeDocumentMoniker": "ToDoDbContext.cs",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\ToDoDbContext.cs",
+              "RelativeToolTip": "ToDoDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:41:22.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAADkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:15:55.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\package-lock.json",
+              "RelativeDocumentMoniker": "package-lock.json",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\package-lock.json",
+              "RelativeToolTip": "package-lock.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T15:15:48.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Tsyvia\\Desktop\\\u05DB\u05D9\u05EA\u05D4 \u05D9\u05D3\\react\\Prakticod 3\\ToDoApi-Server\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T15:35:08.575Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,64 +2,24 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ToDoApi;
- using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.AspNetCore.Mvc;
- using Microsoft.OpenApi;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 var builder = WebApplication.CreateBuilder(args);
 
-
-Console.WriteLine("Before DB connection.");
+// ✅ בדיקת מחרוזת חיבור
 var connectionString = builder.Configuration.GetConnectionString("tododb");
-
 if (string.IsNullOrEmpty(connectionString))
-{
-    Console.WriteLine("⚠️ CONNECTION_STRING is missing or empty! Make sure it's set in Render.");
     throw new InvalidOperationException("Missing database connection string.");
-}
-else
-{
-    Console.WriteLine($"🔍 Connection String: '{connectionString}'");
-}
-// builder.Services.AddDbContext<ToDoDbContext>(options =>
-// {
-//     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-// });
 
-
-
-
+// ✅ שירותים
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        policy =>
-        {
-            policy.WithOrigins("https://clientpraktikod3.onrender.com")// הרשאה לכל מקור (דומיין) - ב
-              .AllowCredentials()
-               .WithMethods("GET", "POST", "PUT", "DELETE")
-                .WithHeaders("Content-Type", "Authorization");
-        });
-});
-
-// הוספת שירותים לחיבור למסד הנתונים באמצעות Entity Framework Core
-builder.Services.AddDbContext<ToDoDbContext>(options =>
-    options.UseMySql(
-        // קבלת מחרוזת החיבור למסד הנתונים מהקונפיגורציה
-        builder.Configuration.GetConnectionString("tododb"),
-        // הגדרת גרסת שרת ה-MySql
-        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.40-mysql")
-    )
-);
-Console.WriteLine("🔄 Trying to connect to DB...");  
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -76,7 +36,7 @@ builder.Services.AddSwaggerGen(options =>
         {
             new OpenApiSecurityScheme
             {
-        Reference = new OpenApiReference
+                Reference = new OpenApiReference
                 {
                     Id = "Bearer",
                     Type = ReferenceType.SecurityScheme
@@ -86,29 +46,63 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!...");  
-var app = builder.Build();
-app.UseCors();
-// if (app.Environment.IsDevelopment())
-// {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-// }
 
+builder.Services.AddDbContext<ToDoDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.Parse("8.0.40-mysql"))
+);
+
+// ✅ CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3002", "https://clientpraktikod3.onrender.com")
+              .AllowCredentials()
+              .WithMethods("GET", "POST", "PUT", "DELETE")
+              .WithHeaders("Content-Type", "Authorization");
+    });
+});
+
+// ✅ JWT Authentication
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JWT:Issuer"],
+            ValidAudience = builder.Configuration["JWT:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
+        };
+    });
+
+builder.Services.AddAuthorization(); // ⬅️ חשוב לפני Build
+
+// ✅ Build
+var app = builder.Build();
+
+// ✅ Middleware לפי הסדר
+app.UseCors();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+
+// ✅ טיפול בשגיאות גלובלי
 app.Use(async (context, next) =>
 {
-    try
-    {
-        await next(); // המשך לבקשה הבאה
-    }
+    try { await next(); }
     catch (Exception ex)
     {
         var logger = app.Services.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "שגיאה התרחשה במהלך עיבוד הבקשה.");
-
         context.Response.StatusCode = 500;
         context.Response.ContentType = "application/json";
-      await context.Response.WriteAsync($"{{\"שגיאה\": \"אירעה שגיאה בשרת: {ex.Message}\", \"סטאק\": \"{ex.StackTrace}\"}}");
+        await context.Response.WriteAsync($"{{\"שגיאה\": \"אירעה שגיאה בשרת: {ex.Message}\"}}");
     }
 });
 
@@ -145,8 +139,18 @@ System.Console.WriteLine("nnnn");
 app.MapPost("/login", async ( ToDoDbContext context,[FromBody] User req) =>
 {
       System.Console.WriteLine("huygouy");
+    System.Console.WriteLine(context.Users);
     User i = context.Users?.FirstOrDefault(u => u.Email ==req.Email && u.Password == req.Password);
-  System.Console.WriteLine("this is mty bvar"+" "+i.Email +i.Name );
+
+    if (context.Users == null)
+    {
+        Console.WriteLine("Users DbSet is null");
+    }
+    else
+    {
+        var usersCount = await context.Users.CountAsync();
+        Console.WriteLine($"Users count: {usersCount}");
+    }
     if (i == null)
     {
        return Results.Json(new {message="!!!!"});
